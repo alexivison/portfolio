@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div {
+  box-sizing: border-box;
+}
+
+html,
+body,
+main {
+  transition: 400ms;
+}
