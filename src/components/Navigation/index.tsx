@@ -1,27 +1,26 @@
-import { motion } from "framer-motion"
+import routes from "@/pages/routes"
+import { AnimatePresence, motion, Variants } from "framer-motion"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
 import { useMemo } from "react"
 import DarkModeToggleButton from "../DarkModeToggleButton"
 
-const routes = [
-  {
-    path: "/",
-    title: "Home",
+const duration = 0.25
+
+const variants: Variants = {
+  in: {
+    opacity: 1,
+    transition: {
+      duration,
+    },
   },
-  {
-    path: "/about",
-    title: "About",
+  out: {
+    opacity: 0,
+    transition: {
+      duration,
+    },
   },
-  {
-    path: "/skills",
-    title: "Skills",
-  },
-  {
-    path: "/contact",
-    title: "Contact",
-  },
-] as const
+}
 
 function Link({ to, children }: { to: string; children: string }) {
   const { asPath } = useRouter()
@@ -31,15 +30,29 @@ function Link({ to, children }: { to: string; children: string }) {
     <NextLink
       href={to}
       className={`
-        transition ease-in-out duration-400
+        flex hover:text-black hover:dark:text-white
         ${
           isActive
-            ? "text-gray-900 dark:text-gray-50"
-            : "text-gray-300 dark:text-gray-500"
+            ? "text-black dark:text-white"
+            : "text-subtext-light dark:text-subtext-dark"
         }
       `}
     >
-      {children}
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={String(isActive)}
+          variants={variants}
+          animate="in"
+          initial="out"
+          exit="out"
+        >
+          {isActive ? (
+            <span className="absolute m-auto left-0 top-2 flex w-2 h-2 -ml-0.5 bg-black dark:bg-white rounded" />
+          ) : (
+            children
+          )}
+        </motion.div>
+      </AnimatePresence>
     </NextLink>
   )
 }
@@ -58,12 +71,12 @@ export default function Navigation() {
   const routeStyles = ["top-0", "top-12", "top-24", "top-36"]
 
   return (
-    <aside className="flex flex-col gap-4 justify-between w-14">
+    <aside className="flex flex-col gap-4 justify-between w-24">
       <div className="relative flex flex-col gap-6">
         {routes.map(({ path, title }, index) => (
           <div
             key={path}
-            className={`transition-all ease-in-out duration-500 ${
+            className={`flex items-center transition-left ease-in-out duration-500 h-6 ${
               currentRouteIndex < index
                 ? `absolute ${routeStyles[index]} left-4`
                 : "relative left-0"
@@ -74,7 +87,7 @@ export default function Navigation() {
         ))}
       </div>
       <motion.span
-        className="h-full w-0.5 bg-gray-900 dark:bg-gray-50 rounded"
+        className="h-full w-0.5 bg-black dark:bg-white rounded"
         layout
         transition={{
           layout: {
@@ -82,7 +95,7 @@ export default function Navigation() {
           },
         }}
       />
-      <div className="flex ">
+      <div className="flex -ml-2">
         <DarkModeToggleButton />
       </div>
     </aside>

@@ -9,5 +9,7 @@ div {
 html,
 body,
 main {
-  transition: 400ms;
+  transition-property: color, background-color, border;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
 }

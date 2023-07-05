@@ -1,9 +1,10 @@
 import Layout from "@/components/Layout"
 import "@/global/styles/globals.css"
 import { Provider } from "jotai"
+import { appWithTranslation } from "next-i18next"
 import type { AppProps } from "next/app"
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <Provider>
       <Layout>
@@ -12,3 +13,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </Provider>
   )
 }
+
+export default appWithTranslation(App)
