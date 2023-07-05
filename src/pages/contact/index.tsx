@@ -28,7 +28,7 @@ export default function Contact() {
   const { t } = useTranslation()
 
   return (
-    <div className="flex flex-col gap-8 container h-full">
+    <div className="flex flex-col gap-4 md:gap-8 container h-full">
       <PageHeader
         title={route.title}
         subTitle={route.kanji}
