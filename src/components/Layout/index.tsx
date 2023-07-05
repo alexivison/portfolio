@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   }, [theme])
 
   return (
-    <main className="fixed inset-0 flex flex-row gap-4 md:gap-16 py-4 pl-6 pr-4 md:py-32 md:px-0 justify-center bg-white dark:bg-black text-black dark:text-white font-mono">
+    <main className="fixed inset-0 flex flex-row gap-4 md:gap-16 py-6 pl-8 pr-6 md:py-32 md:px-0 justify-center bg-white dark:bg-black text-black dark:text-white font-mono">
       <Navigation />
       <div className="flex w-full max-w-screen-sm min-h-full">
         <Transition>{children}</Transition>

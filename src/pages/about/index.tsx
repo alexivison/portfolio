@@ -37,7 +37,7 @@ export default function About() {
         <div className="relative flex flex-col p-2 md:p-4 border-double border-4 border-black dark:border-white order-1 md:order-2">
           <Image alt="" src={aboutImg} width={300} height={300} />
         </div>
-        <div className="flex flex-row gap-8 order-3">
+        <div className="flex flex-row gap-8 text-sm order-3">
           <a
             target="_blank"
             rel="noopener noreferrer"

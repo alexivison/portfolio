@@ -23,7 +23,9 @@ export default function Skill({ image, level }: Props) {
         style={{ background: "#111111" }}
       />
       <div className="flex items-center w-full h-full p-2 border-2 border-black dark:border-white">
-        <span className={`bg-black dark:bg-white h-1 ${indicatorWidth}`} />
+        <span
+          className={`bg-black dark:bg-white h-0.5 md:h-1 ${indicatorWidth}`}
+        />
       </div>
     </div>
   )
