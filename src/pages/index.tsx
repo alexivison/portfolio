@@ -15,7 +15,7 @@ export default function Home() {
         <h3>.development</h3>
         <h3>.design</h3>
       </div>
-      <div className="relative h-full grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition ease-in-out duration-300">
+      <div className="relative h-full grayscale hover:grayscale-0 opacity-50 md:opacity-100 transition ease-in-out duration-300">
         <Image alt="" src={theme === "dark" ? topImgDark : topImgLight} fill />
       </div>
     </div>

@@ -71,7 +71,7 @@ export default function Navigation() {
   const routeStyles = ["top-0", "top-12", "top-24", "top-36"]
 
   return (
-    <aside className="flex flex-col gap-4 justify-between text-xs md:text-sm w-24">
+    <aside className="flex flex-col gap-4 justify-between text-sm w-24">
       <div className="relative flex flex-col gap-6">
         {routes.map(({ path, title }, index) => (
           <div

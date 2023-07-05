@@ -15,9 +15,15 @@ export default function Skill({ image, level }: Props) {
 
   return (
     <div className="flex flex-row items-center gap-2">
-      <Image alt="" src={image} width={32} height={32} />
-      <div className="flex items-center w-full p-2 border-2">
-        <span className={`bg-black dark:bg-white h-0.5 ${indicatorWidth}`} />
+      <Image
+        alt=""
+        src={image}
+        width={28}
+        height={28}
+        style={{ background: "#111111" }}
+      />
+      <div className="flex items-center w-full h-full p-2 border-2 border-black dark:border-white">
+        <span className={`bg-black dark:bg-white h-1 ${indicatorWidth}`} />
       </div>
     </div>
   )
