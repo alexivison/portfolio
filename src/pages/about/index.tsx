@@ -29,7 +29,7 @@ export default function About() {
           {introParagraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
-          <hr className="my-4 border-subtext-light dark:border-subtext-dark" />
+          <hr className="my-2 md:my-4 border-subtext-light dark:border-subtext-dark" />
           {detailParagraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
