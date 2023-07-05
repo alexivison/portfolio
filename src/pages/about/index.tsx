@@ -5,7 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import Image from "next/image"
 import { useMemo } from "react"
 import { FaGithub, FaSoundcloud } from "react-icons/fa"
-import aboutImg from "../../../public/images/top.png"
+import aboutImg from "../../../public/images/about.jpg"
 import { useRoute } from "../../routes"
 
 export default function About() {
@@ -34,7 +34,7 @@ export default function About() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-        <div className="relative flex flex-col p-2 md:p-4 border-double border-4 border-black dark:border-white order-1 md:order-2">
+        <div className="relative flex flex-col p-2 md:p-4 border-double border-4 border-black dark:border-white grayscale hover:grayscale-0 order-1 md:order-2">
           <Image alt="" src={aboutImg} width={300} height={300} />
         </div>
         <div className="flex flex-row gap-8 text-sm order-3">
