@@ -5,7 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import Image from "next/image"
 import { useMemo } from "react"
 import { FaGithub, FaSoundcloud } from "react-icons/fa"
-import aboutImg from "../../res/images/top.png"
+import aboutImg from "../../../public/images/top.png"
 import { useRoute } from "../routes"
 
 export default function About() {

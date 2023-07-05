@@ -1,13 +1,11 @@
 import { useTheme } from "@/global/hooks/useTheme"
 import type { GetStaticProps } from "next"
-import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import Image from "next/image"
-import topImgLight from "../res/images/top_1.jpg"
-import topImgDark from "../res/images/top_2.jpg"
+import topImgLight from "../../public/images/top_1.jpg"
+import topImgDark from "../../public/images/top_2.jpg"
 
 export default function Home() {
-  const { t } = useTranslation()
   const theme = useTheme()
 
   return (
