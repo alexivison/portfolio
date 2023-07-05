@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import { useMemo } from "react"
 
-const routes = [
+export const routes = [
   {
     path: "/",
     title: "Home",
@@ -38,5 +38,3 @@ export const useRoute = () => {
     pageNumber,
   }
 }
-
-export default routes
