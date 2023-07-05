@@ -14,7 +14,7 @@ import SwiftLogo from "../../../public/images/swift.png"
 import TypescriptLogo from "../../../public/images/typescript.png"
 import VaporLogo from "../../../public/images/vapor.png"
 import VueLogo from "../../../public/images/vue.png"
-import { useRoute } from "../routes"
+import { useRoute } from "../../routes"
 import SkillItem from "./parts/Skill"
 
 const skills = [

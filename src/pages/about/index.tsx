@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useMemo } from "react"
 import { FaGithub, FaSoundcloud } from "react-icons/fa"
 import aboutImg from "../../../public/images/top.png"
-import { useRoute } from "../routes"
+import { useRoute } from "../../routes"
 
 export default function About() {
   const { t } = useTranslation("about")

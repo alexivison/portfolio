@@ -3,7 +3,7 @@ import type { GetStaticProps } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { FaLink, FaLinkedin } from "react-icons/fa"
-import { useRoute } from "../routes"
+import { useRoute } from "../../routes"
 
 const contacts = [
   {
