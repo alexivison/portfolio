@@ -18,30 +18,26 @@ export default function About() {
   const detailParagraphs = useMemo(() => detail.split(/\r?\n/), [detail])
 
   return (
-    <div className="flex flex-col gap-8 container h-full">
+    <div className="flex flex-col gap-4 md:gap-8 container h-full">
       <PageHeader
         title={route.title}
         subTitle={route.kanji}
         pageNumber={pageNumber}
       />
-      <div className="grid gap-8 grid-cols-2 auto-rows-auto items-start">
-        <div className="flex flex-col gap-4">
+      <div className="grid gap-4 md:gap-8 md:grid-cols-2 auto-rows-auto items-start text-xs md:text-sm pb-6 overflow-auto">
+        <div className="flex flex-col gap-4 order-2 md:order-1">
           {introParagraphs.map((paragraph) => (
-            <p key={paragraph} className="text-sm">
-              {paragraph}
-            </p>
+            <p key={paragraph}>{paragraph}</p>
           ))}
           <hr className="my-4 border-subtext-light dark:border-subtext-dark" />
           {detailParagraphs.map((paragraph) => (
-            <p key={paragraph} className="text-sm">
-              {paragraph}
-            </p>
+            <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-        <div className="relative flex flex-col p-4 border-double border-4 border-black dark:border-white">
+        <div className="relative flex flex-col p-2 md:p-4 border-double border-4 border-black dark:border-white order-1 md:order-2">
           <Image alt="" src={aboutImg} width={300} height={300} />
         </div>
-        <div className="flex flex-row gap-8">
+        <div className="flex flex-row gap-8 order-3">
           <a
             target="_blank"
             rel="noopener noreferrer"

@@ -64,14 +64,14 @@ export default function Skills() {
   )
 
   return (
-    <div className="flex flex-col gap-8 container h-full">
+    <div className="flex flex-col gap-4 md:gap-8 container h-full">
       <PageHeader
         title={route.title}
         subTitle={route.kanji}
         pageNumber={pageNumber}
       />
-      <div className="flex flex-col justify-between gap-8 h-full pb-8">
-        <ul className="flex flex-row justify-between gap-16">
+      <div className="flex flex-col justify-between gap-8 h-full pb-6 md:pb-8 overflow-auto">
+        <ul className="flex flex-col md:flex-row justify-between gap-8 md:gap-16">
           {Object.entries(categoryGroupedSkills).map(([category, skills]) => (
             <li key={category} className="flex flex-col gap-4 w-full">
               <h3>{`.${category}`}</h3>
@@ -85,7 +85,7 @@ export default function Skills() {
         </ul>
         <div className="flex flex-col gap-4 w-full">
           <h3>.languages</h3>
-          <ul className="flex flex-row justify-between gap-16">
+          <ul className="flex flex-col md:flex-row justify-between gap-4 md:gap-16 text-xs md:text-sm">
             {languageSkills.map(({ language, level }) => (
               <li key={language} className="flex flex-row gap-4">
                 <h3>{language}</h3>-<span>{level}</span>
