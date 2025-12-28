@@ -1,9 +1,10 @@
-import { routes } from "@/routes"
+import { routes, useRoutes } from "@/routes"
 import { AnimatePresence, motion, Variants } from "framer-motion"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
 import { useMemo } from "react"
 import DarkModeToggleButton from "../DarkModeToggleButton"
+import LanguageSwitcher from "../LanguageSwitcher"
 
 const duration = 0.25
 
@@ -59,6 +60,7 @@ function Link({ to, children }: { to: string; children: string }) {
 
 export default function Navigation() {
   const { asPath } = useRouter()
+  const translatedRoutes = useRoutes()
 
   const currentRouteIndex = useMemo(
     () =>
@@ -73,7 +75,7 @@ export default function Navigation() {
   return (
     <aside className="flex flex-col gap-4 justify-between text-sm w-24">
       <div className="relative flex flex-col gap-6">
-        {routes.map(({ path, title }, index) => (
+        {translatedRoutes.map(({ path, title }, index) => (
           <div
             key={path}
             className={`flex items-center transition-left ease-in-out duration-500 h-6 ${
@@ -95,7 +97,8 @@ export default function Navigation() {
           },
         }}
       />
-      <div className="flex -ml-2">
+      <div className="flex -ml-2 gap-4 items-center">
+        <LanguageSwitcher />
         <DarkModeToggleButton />
       </div>
     </aside>

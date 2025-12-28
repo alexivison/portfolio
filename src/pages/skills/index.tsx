@@ -38,16 +38,16 @@ const skills = [
 ] as const
 
 const languageSkills = [
-  { language: "Finnish", level: "Native" },
-  { language: "English", level: "Business" },
-  { language: "Japanese", level: "Business" },
+  { languageKey: "skills.languages.finnish", levelKey: "skills.languages.levels.native" },
+  { languageKey: "skills.languages.english", levelKey: "skills.languages.levels.business" },
+  { languageKey: "skills.languages.japanese", levelKey: "skills.languages.levels.business" },
 ] as const
 
 type Skill = (typeof skills)[number]
 
 export default function Skills() {
   const { route, pageNumber } = useRoute()
-  const { t } = useTranslation()
+  const { t } = useTranslation("common")
 
   const categoryGroupedSkills = skills.reduce<{
     web: Skill[]
@@ -64,17 +64,17 @@ export default function Skills() {
   )
 
   return (
-    <div className="flex flex-col gap-4 md:gap-8 container h-full">
+    <div className="flex flex-col gap-4 md:gap-8 h-full w-full overflow-x-hidden">
       <PageHeader
         title={route.title}
         subTitle={route.kanji}
         pageNumber={pageNumber}
       />
       <div className="flex flex-col justify-between gap-8 h-full pb-6 md:pb-8 overflow-auto">
-        <ul className="flex flex-col md:flex-row justify-between gap-8 md:gap-16">
+        <ul className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-8 min-w-0 w-full">
           {Object.entries(categoryGroupedSkills).map(([category, skills]) => (
-            <li key={category} className="flex flex-col gap-4 w-full">
-              <h3>{`.${category}`}</h3>
+            <li key={category} className="flex flex-col gap-4 flex-1 min-w-0">
+              <h3>{`.${t(`skills.categories.${category}`)}`}</h3>
               {skills
                 .sort((a, b) => b.level - a.level)
                 .map(({ title, image, level }) => (
@@ -84,11 +84,11 @@ export default function Skills() {
           ))}
         </ul>
         <div className="flex flex-col gap-4 w-full">
-          <h3>.languages</h3>
-          <ul className="flex flex-col md:flex-row justify-between gap-4 md:gap-16 text-xs md:text-sm">
-            {languageSkills.map(({ language, level }) => (
-              <li key={language} className="flex flex-row gap-4">
-                <h3>{language}</h3>-<span>{level}</span>
+          <h3>.{t("skills.languages.label")}</h3>
+          <ul className="flex flex-col md:flex-row md:justify-between gap-4 md:gap-8 text-xs md:text-sm min-w-0 w-full">
+            {languageSkills.map(({ languageKey, levelKey }) => (
+              <li key={languageKey} className="flex flex-row gap-4">
+                <h3>{t(languageKey)}</h3>-<span>{t(levelKey)}</span>
               </li>
             ))}
           </ul>

@@ -3,19 +3,36 @@ import type { GetStaticProps } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import Image from "next/image"
-import { useMemo } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { FaGithub, FaSoundcloud } from "react-icons/fa"
 import aboutImg from "../../../public/images/about.jpg"
 import { useRoute } from "../../routes"
 
 export default function About() {
-  const { t } = useTranslation("about")
+  const { t, ready } = useTranslation("about")
   const { route, pageNumber } = useRoute()
+  
+  const introTranslation = t("introduction")
+  const detailTranslation = t("details")
+  
+  const [intro, setIntro] = useState(() => 
+    introTranslation !== "introduction" ? introTranslation : ""
+  )
+  const [detail, setDetail] = useState(() => 
+    detailTranslation !== "details" ? detailTranslation : ""
+  )
 
-  const intro = useMemo(() => t("introduction"), [])
-  const detail = useMemo(() => t("details"), [])
-  const introParagraphs = useMemo(() => intro.split(/\r?\n/), [intro])
-  const detailParagraphs = useMemo(() => detail.split(/\r?\n/), [detail])
+  useEffect(() => {
+    if (ready && introTranslation !== "introduction") {
+      setIntro(introTranslation)
+    }
+    if (ready && detailTranslation !== "details") {
+      setDetail(detailTranslation)
+    }
+  }, [t, ready, introTranslation, detailTranslation])
+
+  const introParagraphs = useMemo(() => intro.split(/\r?\n/).filter(Boolean), [intro])
+  const detailParagraphs = useMemo(() => detail.split(/\r?\n/).filter(Boolean), [detail])
 
   return (
     <div className="flex flex-col gap-4 md:gap-8 container h-full">
@@ -24,7 +41,7 @@ export default function About() {
         subTitle={route.kanji}
         pageNumber={pageNumber}
       />
-      <div className="grid gap-4 md:gap-8 md:grid-cols-2 auto-rows-auto items-start text-xs md:text-sm pb-6 overflow-auto">
+      <div className="grid gap-4 md:gap-8 md:grid-cols-2 auto-rows-auto items-start text-xs md:text-sm pb-6 overflow-hidden">
         <div className="flex flex-col gap-4 order-2 md:order-1">
           {introParagraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>

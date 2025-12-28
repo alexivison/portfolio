@@ -1,3 +1,29 @@
 {
-  "test": "Test"
+  "routes": {
+    "home": "Home",
+    "about": "About me",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "skills": {
+    "categories": {
+      "web": "web",
+      "design": "design",
+      "native": "native"
+    },
+    "languages": {
+      "label": "languages",
+      "finnish": "Finnish",
+      "english": "English",
+      "japanese": "Japanese",
+      "levels": {
+        "native": "Native",
+        "business": "Business"
+      }
+    }
+  },
+  "contact": {
+    "wantedly": ".wantedly",
+    "tenshokudraft": ".tenshokudraft"
+  }
 }

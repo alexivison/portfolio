@@ -1,3 +1,29 @@
 {
-  "test": "Testi"
+  "routes": {
+    "home": "Koti",
+    "about": "Tietoa minusta",
+    "skills": "Taidot",
+    "contact": "Yhteystiedot"
+  },
+  "skills": {
+    "categories": {
+      "web": "web",
+      "design": "design",
+      "native": "natiivi"
+    },
+    "languages": {
+      "label": "kielet",
+      "finnish": "Suomi",
+      "english": "Englanti",
+      "japanese": "Japani",
+      "levels": {
+        "native": "Äidinkieli",
+        "business": "Liiketoiminta"
+      }
+    }
+  },
+  "contact": {
+    "wantedly": ".wantedly",
+    "tenshokudraft": ".tenshokudraft"
+  }
 }

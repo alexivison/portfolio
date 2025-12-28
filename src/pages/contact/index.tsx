@@ -2,22 +2,17 @@ import PageHeader from "@/components/PageHeader"
 import type { GetStaticProps } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { FaLink, FaLinkedin } from "react-icons/fa"
+import { FaLink } from "react-icons/fa"
 import { useRoute } from "../../routes"
 
 const contacts = [
   {
-    title: ".linkedin",
-    icon: <FaLinkedin />,
-    link: "https://www.linkedin.com/in/aleksi-tuominen-6b806626b/",
-  },
-  {
-    title: ".wantedly",
+    titleKey: "contact.wantedly",
     icon: <FaLink />,
     link: "https://www.wantedly.com/id/aleksi_tuominen",
   },
   {
-    title: ".tenshokudraft",
+    titleKey: "contact.tenshokudraft",
     icon: <FaLink />,
     link: "https://job-draft.jp/users/32825",
   },
@@ -25,7 +20,7 @@ const contacts = [
 
 export default function Contact() {
   const { route, pageNumber } = useRoute()
-  const { t } = useTranslation()
+  const { t } = useTranslation("common")
 
   return (
     <div className="flex flex-col gap-4 md:gap-8 container h-full">
@@ -35,11 +30,11 @@ export default function Contact() {
         pageNumber={pageNumber}
       />
       <ul className="flex flex-col gap-4">
-        {contacts.map(({ title, icon, link }) => (
-          <li key={title} className="flex flex-row gap-4 items-center">
+        {contacts.map(({ titleKey, icon, link }) => (
+          <li key={titleKey} className="flex flex-row gap-4 items-center">
             {icon}
             <a href={link} target="_blank" rel="noopener noreferrer">
-              {title}
+              {t(titleKey)}
             </a>
           </li>
         ))}
