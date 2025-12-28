@@ -64,14 +64,14 @@ export default function Skills() {
   )
 
   return (
-    <div className="flex flex-col gap-4 md:gap-8 h-full w-full overflow-x-hidden">
+    <div className="flex flex-col gap-4 md:gap-8 w-full">
       <PageHeader
         title={route.title}
         subTitle={route.kanji}
         pageNumber={pageNumber}
       />
-      <div className="flex flex-col justify-between gap-8 h-full pb-6 md:pb-8 overflow-auto">
-        <ul className="flex flex-col md:flex-row md:justify-between gap-8 md:gap-8 min-w-0 w-full">
+      <div className="flex flex-col justify-between gap-8 pb-6 md:pb-8">
+        <ul className="flex flex-col md:flex-row md:justify-between gap-6 md:gap-8 w-full">
           {Object.entries(categoryGroupedSkills).map(([category, skills]) => (
             <li key={category} className="flex flex-col gap-4 flex-1 min-w-0">
               <h3>{`.${t(`skills.categories.${category}`)}`}</h3>
@@ -85,9 +85,9 @@ export default function Skills() {
         </ul>
         <div className="flex flex-col gap-4 w-full">
           <h3>.{t("skills.languages.label")}</h3>
-          <ul className="flex flex-col md:flex-row md:justify-between gap-4 md:gap-8 text-xs md:text-sm min-w-0 w-full">
+          <ul className="flex flex-col md:flex-row md:justify-between gap-4 md:gap-8 text-xs md:text-sm w-full">
             {languageSkills.map(({ languageKey, levelKey }) => (
-              <li key={languageKey} className="flex flex-row gap-4">
+              <li key={languageKey} className="flex flex-row gap-2 md:gap-4 py-1">
                 <h3>{t(languageKey)}</h3>-<span>{t(levelKey)}</span>
               </li>
             ))}

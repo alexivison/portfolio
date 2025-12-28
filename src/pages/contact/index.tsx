@@ -23,17 +23,22 @@ export default function Contact() {
   const { t } = useTranslation("common")
 
   return (
-    <div className="flex flex-col gap-4 md:gap-8 container h-full">
+    <div className="flex flex-col gap-4 md:gap-8 container min-h-[calc(100vh-5rem)] md:min-h-0">
       <PageHeader
         title={route.title}
         subTitle={route.kanji}
         pageNumber={pageNumber}
       />
-      <ul className="flex flex-col gap-4">
+      <ul className="flex flex-col gap-2">
         {contacts.map(({ titleKey, icon, link }) => (
-          <li key={titleKey} className="flex flex-row gap-4 items-center">
-            {icon}
-            <a href={link} target="_blank" rel="noopener noreferrer">
+          <li key={titleKey}>
+            <a 
+              href={link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-row gap-4 items-center py-3 -mx-2 px-2"
+            >
+              {icon}
               {t(titleKey)}
             </a>
           </li>

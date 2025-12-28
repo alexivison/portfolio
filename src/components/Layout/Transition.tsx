@@ -22,17 +22,17 @@ const variants: Variants = {
 }
 
 export default function Transition({ children }: { children: ReactNode }) {
-  const { asPath } = useRouter()
+  const { pathname } = useRouter()
 
   return (
     <AnimatePresence initial={false} mode="wait">
       <motion.div
-        key={asPath}
+        key={pathname}
         variants={variants}
         animate="in"
         initial="out"
         exit="out"
-        className="w-full"
+        className="w-full h-full"
       >
         {children}
       </motion.div>

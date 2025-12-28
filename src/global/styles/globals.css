@@ -7,9 +7,33 @@ div {
 }
 
 html,
+body {
+  overflow-x: hidden;
+}
+
+html,
 body,
 main {
   transition-property: color, background-color, border;
   transition-duration: 300ms;
   transition-timing-function: ease-out;
+}
+
+/* Hide scrollbar while allowing scroll */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+/* Safe area support for notched devices (iPhone X+, etc.) */
+@supports (padding: env(safe-area-inset-bottom)) {
+  main {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }

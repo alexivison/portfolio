@@ -11,7 +11,7 @@ import { useRoute } from "../../routes"
 export default function About() {
   const { t, ready } = useTranslation("about")
   const { route, pageNumber } = useRoute()
-  
+
   const introTranslation = t("introduction")
   const detailTranslation = t("details")
   
@@ -35,13 +35,13 @@ export default function About() {
   const detailParagraphs = useMemo(() => detail.split(/\r?\n/).filter(Boolean), [detail])
 
   return (
-    <div className="flex flex-col gap-4 md:gap-8 container h-full">
+    <div className="flex flex-col gap-4 md:gap-8 container">
       <PageHeader
         title={route.title}
         subTitle={route.kanji}
         pageNumber={pageNumber}
       />
-      <div className="grid gap-4 md:gap-8 md:grid-cols-2 auto-rows-auto items-start text-xs md:text-sm pb-6 overflow-hidden">
+      <div className="grid gap-4 md:gap-8 md:grid-cols-2 auto-rows-auto items-start text-xs md:text-sm pb-6">
         <div className="flex flex-col gap-4 order-2 md:order-1">
           {introParagraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
@@ -52,14 +52,14 @@ export default function About() {
           ))}
         </div>
         <div className="relative flex flex-col p-2 md:p-4 border-double border-4 border-black dark:border-white grayscale hover:grayscale-0 order-1 md:order-2">
-          <Image alt="" src={aboutImg} width={300} height={300} />
+          <Image alt="" src={aboutImg} width={300} height={300} className="w-full h-auto" />
         </div>
-        <div className="flex flex-row gap-8 text-sm order-3">
+        <div className="flex flex-row gap-4 md:gap-8 text-sm order-3">
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/alexivison"
-            className="flex flex-row gap-4 items-center"
+            className="flex flex-row gap-2 md:gap-4 items-center py-2"
           >
             <FaGithub />
             <span>.github</span>
@@ -68,7 +68,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
             href="https://soundcloud.com/alex_ivison"
-            className="flex flex-row gap-4 items-center"
+            className="flex flex-row gap-2 md:gap-4 items-center py-2"
           >
             <FaSoundcloud />
             <span>.soundcloud</span>
