@@ -22,9 +22,9 @@ export default function Layout({ children }: { children: ReactNode }) {
   }, [theme])
 
   return (
-    <main className="min-h-screen md:h-screen flex flex-col md:flex-row gap-4 md:gap-16 pt-16 px-4 pb-4 md:py-32 md:px-0 justify-center bg-white dark:bg-black text-black dark:text-white font-mono md:overflow-hidden">
+    <main className="min-h-screen lg:h-screen flex flex-col lg:flex-row gap-4 lg:gap-16 pt-16 px-4 pb-4 lg:py-32 lg:px-0 items-center lg:items-start justify-center bg-white dark:bg-black text-black dark:text-white font-mono lg:overflow-hidden">
       <Navigation />
-      <div className="flex w-full max-w-screen-sm md:overflow-y-auto md:overflow-x-hidden hide-scrollbar">
+      <div className="flex w-full max-w-screen-sm lg:overflow-y-auto lg:overflow-x-hidden hide-scrollbar">
         <Transition>{children}</Transition>
       </div>
     </main>

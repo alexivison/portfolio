@@ -9,13 +9,13 @@ export default function Home() {
   const theme = useTheme()
 
   return (
-    <div className="relative flex flex-col p-4 md:p-8 min-h-[calc(100vh-5rem)] md:min-h-[70vh] border-double border-4 border-black dark:border-white">
-      <div className="absolute z-10 bottom-8 left-8 md:top-16 md:bottom-auto md:right-16 md:left-auto">
-        <h1 className="text-2xl md:text-3xl">Aleksi Tuominen</h1>
+    <div className="relative flex flex-col p-4 lg:p-8 min-h-[calc(100vh-5rem)] lg:min-h-[70vh] border-double border-4 border-black dark:border-white">
+      <div className="absolute z-10 bottom-8 left-8 lg:top-16 lg:bottom-auto lg:right-16 lg:left-auto">
+        <h1 className="text-2xl lg:text-3xl">Aleksi Tuominen</h1>
         <h3>.development</h3>
         <h3>.design</h3>
       </div>
-      <div className="relative flex-1 min-h-[200px] grayscale hover:grayscale-0 opacity-50 md:opacity-100 transition ease-in-out duration-300">
+      <div className="relative flex-1 min-h-[200px] grayscale hover:grayscale-0 opacity-50 lg:opacity-100 transition ease-in-out duration-300">
         <Image alt="" src={theme === "dark" ? topImgDark : topImgLight} fill className="object-cover" />
       </div>
     </div>

@@ -40,8 +40,8 @@ function Link({ to, children }: { to: string; children: string }) {
         }
       `}
     >
-      {/* On mobile: always show text. On desktop: hide text when active (show dot instead) */}
-      <span className={isActive ? "md:invisible" : ""}>{children}</span>
+      {/* On mobile/tablet: always show text. On desktop: hide text when active (show dot instead) */}
+      <span className={isActive ? "lg:invisible" : ""}>{children}</span>
       {/* Dot indicator - only visible on desktop when active */}
       <AnimatePresence initial={false}>
         {isActive && (
@@ -51,7 +51,7 @@ function Link({ to, children }: { to: string; children: string }) {
             animate="in"
             initial="out"
             exit="out"
-            className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-black dark:bg-white rounded"
+            className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-black dark:bg-white rounded"
           />
         )}
       </AnimatePresence>
@@ -108,52 +108,52 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Hamburger button - visible on mobile, positioned top-right */}
+      {/* Hamburger button - visible on mobile/tablet, positioned top-right */}
       {!isMenuOpen && (
         <button
           type="button"
           onClick={toggleMenu}
-          className="md:hidden fixed top-4 right-4 z-50 p-3 text-black dark:text-white"
+          className="lg:hidden fixed top-4 right-4 z-50 p-3 text-black dark:text-white"
           aria-label="Toggle menu"
         >
           <FaBars size={24} />
         </button>
       )}
 
-      {/* Overlay - visible on mobile when menu is open */}
+      {/* Overlay - visible on mobile/tablet when menu is open */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-black/80 dark:bg-black/90 backdrop-blur-sm z-40" />
+        <div className="lg:hidden fixed inset-0 bg-black/80 dark:bg-black/90 backdrop-blur-sm z-40" />
       )}
 
       {/* Navigation sidebar */}
       <aside
         ref={menuRef}
         className={`
-          fixed md:relative
+          fixed lg:relative
           top-0 left-0
-          h-full md:h-auto
-          w-64 md:w-36 md:shrink-0
+          h-full lg:h-auto lg:self-stretch
+          w-64 lg:w-36 lg:shrink-0
           bg-white dark:bg-black
-          md:bg-transparent
-          z-50 md:z-auto
+          lg:bg-transparent
+          z-50 lg:z-auto
           flex flex-col gap-4 justify-between text-sm
-          pt-8 pb-6 px-6 md:pt-0 md:pb-0 md:px-0
-          overflow-y-auto md:overflow-visible
+          pt-8 pb-6 px-6 lg:pt-0 lg:pb-0 lg:px-0
+          overflow-y-auto lg:overflow-visible
           transform transition-transform duration-300 ease-in-out
-          ${isMenuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+          ${isMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}
       >
-        <div className="relative flex flex-col gap-4 md:gap-6">
+        <div className="relative flex flex-col gap-4 lg:gap-6">
           {translatedRoutes.map(({ path, title }, index) => (
             <div
               key={path}
               className={`
                 flex items-center 
-                h-10 md:h-6
-                md:transition-left md:ease-in-out md:duration-500
+                h-10 lg:h-6
+                lg:transition-left lg:ease-in-out lg:duration-500
                 ${
                   currentRouteIndex < index
-                    ? `md:absolute ${routeStyles[index]} md:left-4`
+                    ? `lg:absolute ${routeStyles[index]} lg:left-4`
                     : "relative left-0"
                 }
               `}
@@ -163,7 +163,7 @@ export default function Navigation() {
           ))}
         </div>
         <motion.span
-          className="hidden md:block h-full w-0.5 bg-black dark:bg-white rounded"
+          className="hidden lg:block h-full w-0.5 bg-black dark:bg-white rounded"
           layout
           transition={{
             layout: {
