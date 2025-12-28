@@ -1,9 +1,9 @@
+import { useMenu } from "@/global/context/MenuContext"
 import { routes, useRoutes } from "@/routes"
 import { AnimatePresence, motion, Variants } from "framer-motion"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
-import { useEffect, useMemo, useRef, useState } from "react"
-import { FaBars } from "react-icons/fa"
+import { useEffect, useMemo, useRef } from "react"
 import DarkModeToggleButton from "../DarkModeToggleButton"
 import LanguageSwitcher from "../LanguageSwitcher"
 
@@ -62,7 +62,7 @@ function Link({ to, children }: { to: string; children: string }) {
 export default function Navigation() {
   const { asPath } = useRouter()
   const translatedRoutes = useRoutes()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { isMenuOpen, closeMenu } = useMenu()
   const menuRef = useRef<HTMLDivElement>(null)
 
   const currentRouteIndex = useMemo(
@@ -77,14 +77,14 @@ export default function Navigation() {
 
   // Close menu when route changes
   useEffect(() => {
-    setIsMenuOpen(false)
-  }, [asPath])
+    closeMenu()
+  }, [asPath, closeMenu])
 
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsMenuOpen(false)
+        closeMenu()
       }
     }
 
@@ -100,26 +100,10 @@ export default function Navigation() {
       document.removeEventListener("mousedown", handleClickOutside)
       document.body.style.overflow = ""
     }
-  }, [isMenuOpen])
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  }, [isMenuOpen, closeMenu])
 
   return (
     <>
-      {/* Hamburger button - visible on mobile/tablet, positioned top-right */}
-      {!isMenuOpen && (
-        <button
-          type="button"
-          onClick={toggleMenu}
-          className="lg:hidden fixed top-4 right-4 z-50 p-3 text-black dark:text-white"
-          aria-label="Toggle menu"
-        >
-          <FaBars size={24} />
-        </button>
-      )}
-
       {/* Overlay - visible on mobile/tablet when menu is open */}
       {isMenuOpen && (
         <div className="lg:hidden fixed inset-0 bg-black/80 dark:bg-black/90 backdrop-blur-sm z-40" />

@@ -64,7 +64,7 @@ export default function Skills() {
   )
 
   return (
-    <div className="flex flex-col gap-4 lg:gap-8 w-full">
+    <div className="flex flex-col gap-4 lg:gap-8 container">
       <PageHeader
         title={route.title}
         subTitle={route.kanji}
