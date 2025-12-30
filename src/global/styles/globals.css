@@ -9,6 +9,7 @@ div {
 html,
 body {
   overflow-x: hidden;
+  overscroll-behavior-y: contain;
 }
 
 html,

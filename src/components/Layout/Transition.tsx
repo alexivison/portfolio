@@ -32,7 +32,7 @@ export default function Transition({ children }: { children: ReactNode }) {
         animate="in"
         initial="out"
         exit="out"
-        className="w-full h-full"
+        className="w-full"
       >
         {children}
       </motion.div>
