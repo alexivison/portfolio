@@ -51,7 +51,7 @@ export default function About() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-        <div className="relative flex flex-col p-2 lg:p-4 border-double border-4 border-black dark:border-white grayscale hover:grayscale-0 order-1 lg:order-2">
+        <div className="relative flex flex-col p-2 lg:p-4 border-double border-4 border-black dark:border-white order-1 lg:order-2">
           {/* Mobile: cropped aspect ratio */}
           <div className="relative aspect-[3/2] w-full overflow-hidden lg:hidden">
             <Image alt="" src={aboutImg} fill className="object-cover object-top" />
