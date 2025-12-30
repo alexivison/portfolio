@@ -12,6 +12,17 @@ body {
   overscroll-behavior-y: contain;
 }
 
+/* Fix for iOS Safari dynamic toolbar - use dvh instead of vh */
+.min-h-dvh {
+  min-height: 100vh; /* Fallback for older browsers */
+  min-height: 100dvh;
+}
+
+.h-dvh {
+  height: 100vh; /* Fallback for older browsers */
+  height: 100dvh;
+}
+
 html,
 body,
 main {
