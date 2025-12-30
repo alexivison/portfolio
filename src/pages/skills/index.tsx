@@ -2,6 +2,7 @@ import PageHeader from "@/components/PageHeader"
 import type { GetStaticProps } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import { useRouter } from "next/router"
 import CSSLogo from "../../../public/images/css.png"
 import FigmaLogo from "../../../public/images/figma.png"
 import HTMLLogo from "../../../public/images/html.png"
@@ -38,9 +39,9 @@ const skills = [
 ] as const
 
 const languageSkills = [
-  { languageKey: "skills.languages.finnish", levelKey: "skills.languages.levels.native" },
-  { languageKey: "skills.languages.english", levelKey: "skills.languages.levels.business" },
-  { languageKey: "skills.languages.japanese", levelKey: "skills.languages.levels.business" },
+  { languageKey: "skills.languages.finnish", levelKey: "skills.languages.levels.native", locale: "fi" },
+  { languageKey: "skills.languages.english", levelKey: "skills.languages.levels.business", locale: "en" },
+  { languageKey: "skills.languages.japanese", levelKey: "skills.languages.levels.business", locale: "ja" },
 ] as const
 
 type Skill = (typeof skills)[number]
@@ -48,6 +49,11 @@ type Skill = (typeof skills)[number]
 export default function Skills() {
   const { route, pageNumber } = useRoute()
   const { t } = useTranslation("common")
+  const router = useRouter()
+
+  const handleLanguageClick = (newLocale: string) => {
+    router.replace(router.asPath, router.asPath, { locale: newLocale, shallow: false })
+  }
 
   const categoryGroupedSkills = skills.reduce<{
     web: Skill[]
@@ -86,9 +92,16 @@ export default function Skills() {
         <div className="flex flex-col gap-4 w-full">
           <h3>.{t("skills.languages.label")}</h3>
           <ul className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-8 text-xs lg:text-sm w-full">
-            {languageSkills.map(({ languageKey, levelKey }) => (
+            {languageSkills.map(({ languageKey, levelKey, locale }) => (
               <li key={languageKey} className="flex flex-row gap-2 lg:gap-4 py-1">
-                <h3>{t(languageKey)}</h3>-<span>{t(levelKey)}</span>
+                <button
+                  type="button"
+                  onClick={() => handleLanguageClick(locale)}
+                  className="hover:underline cursor-pointer"
+                >
+                  <h3>{t(languageKey)}</h3>
+                </button>
+                -<span>{t(levelKey)}</span>
               </li>
             ))}
           </ul>

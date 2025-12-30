@@ -9,7 +9,7 @@
     "categories": {
       "web": "web",
       "design": "design",
-      "native": "natiivi"
+      "native": "native"
     },
     "languages": {
       "label": "kielet",
@@ -18,7 +18,7 @@
       "japanese": "Japani",
       "levels": {
         "native": "Äidinkieli",
-        "business": "Liiketoiminta"
+        "business": "Itsenäinen"
       }
     }
   },

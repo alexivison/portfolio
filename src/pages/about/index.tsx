@@ -52,7 +52,12 @@ export default function About() {
           ))}
         </div>
         <div className="relative flex flex-col p-2 lg:p-4 border-double border-4 border-black dark:border-white grayscale hover:grayscale-0 order-1 lg:order-2">
-          <Image alt="" src={aboutImg} width={300} height={300} className="w-full h-auto" />
+          {/* Mobile: cropped aspect ratio */}
+          <div className="relative aspect-[3/2] w-full overflow-hidden lg:hidden">
+            <Image alt="" src={aboutImg} fill className="object-cover object-top" />
+          </div>
+          {/* Desktop: full image */}
+          <Image alt="" src={aboutImg} width={300} height={300} className="hidden lg:block w-full h-auto" />
         </div>
         <div className="flex flex-row gap-4 lg:gap-8 text-sm order-3">
           <a

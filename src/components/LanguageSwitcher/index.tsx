@@ -51,14 +51,14 @@ export default function LanguageSwitcher() {
         <span className="text-xs">{currentLanguage.label}</span>
       </button>
       {isOpen && (
-        <div className="absolute bottom-full left-0 mb-2 bg-white dark:bg-black border border-black dark:border-white rounded shadow-lg z-50">
+        <div className="absolute bottom-full left-2 mb-2 bg-white dark:bg-black border border-black dark:border-white rounded shadow-lg z-50">
           {languages.map((lang) => (
             <button
               key={lang.code}
               type="button"
               onClick={() => handleLanguageChange(lang.code)}
               className={`
-                w-full px-3 py-2 text-left text-xs hover:bg-gray-100 dark:hover:bg-gray-900
+                w-full px-4 py-3 lg:px-3 lg:py-2 text-left text-sm lg:text-xs hover:bg-gray-100 dark:hover:bg-gray-900
                 ${
                   lang.code === locale
                     ? "bg-gray-100 dark:bg-gray-900 font-semibold"
