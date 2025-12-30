@@ -26,7 +26,7 @@ export default function Home() {
           </button>
         )}
       </div>
-      <div className="relative flex flex-col p-4 lg:p-8 min-h-[calc(100vh-8rem)] lg:min-h-[70vh] border-double border-4 border-black dark:border-white">
+      <div className="relative flex flex-col p-4 lg:p-8 min-h-[calc(100dvh-8rem)] lg:min-h-[70vh] border-double border-4 border-black dark:border-white">
         <div className="absolute z-10 bottom-8 left-8 lg:top-16 lg:bottom-auto lg:right-16 lg:left-auto">
           <h1 className="text-2xl lg:text-3xl">Aleksi Tuominen</h1>
           <h3>.development</h3>
