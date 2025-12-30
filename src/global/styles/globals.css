@@ -9,7 +9,6 @@ div {
 html,
 body {
   overflow-x: hidden;
-  overscroll-behavior: none;
 }
 
 /* Fix for iOS Safari dynamic toolbar - use dvh instead of vh */
